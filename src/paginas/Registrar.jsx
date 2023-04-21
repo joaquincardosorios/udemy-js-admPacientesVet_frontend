@@ -9,7 +9,7 @@ const Registrar = () => {
                 <span className="text-black"> tus Pacientes</span>
             </h1>
         </div>
-        <div className='mt-20 md:mt-5 shadow-lg px-5 py-10 rounded-xl bg-white'>
+        <div className='mt-20 md:mt-5 shadow-lg px-5 py-8 rounded-xl bg-white'>
           <form action="">
             <div className="my-5">
               <label 
@@ -64,12 +64,12 @@ const Registrar = () => {
               />
             </div>
             <input 
-                    type="submit" 
-                    value="Iniciar Sesión" 
-                    className="bg-indigo-700 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-8 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"
-                />
+              type="submit" 
+              value="Crear Cuenta" 
+              className="bg-indigo-700 w-full py-3 px-10 rounded-xl text-white uppercase font-bold mt-5 hover:cursor-pointer hover:bg-indigo-800 md:w-auto"
+            />
           </form>
-          <nav className='mt-10 lg:flex lg:justify-between'>
+          <nav className='mt-5 lg:flex lg:justify-between'>
             <Link 
               className='block text-center my-5 text-gray-500'
               to="/">Inicia Sesion
@@ -78,7 +78,7 @@ const Registrar = () => {
               className='block text-center my-5 text-gray-500'
               to="/olvide-password">Olvide mi Password
             </Link>
-            </nav>
+          </nav>
         </div>
       </>
     )
