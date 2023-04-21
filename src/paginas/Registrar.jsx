@@ -7,6 +7,22 @@ const Registrar = () => {
   const [ password, setPassword] = useState('');
   const [ repetirPassword, setRepetirPassword] = useState('');
 
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if([nombre, email, password, repetirPassword].includes('')){
+      console.log('Hay campos vacios')
+      return
+    }
+    if(password!==repetirPassword){
+      console.log('Los pass no son iguales');
+      return
+    }
+    if(password.length < 8) {
+      console.log('El password es muy corto')
+    }
+
+  }
 
   return (
     <>
@@ -17,7 +33,7 @@ const Registrar = () => {
           </h1>
       </div>
       <div className='mt-20 md:mt-5 shadow-lg px-5 py-8 rounded-xl bg-white'>
-        <form action="">
+        <form action="" onSubmit={handleSubmit}>
           <div className="my-5">
             <label 
               htmlFor=""
@@ -25,8 +41,6 @@ const Registrar = () => {
             >Nombre: </label>
             <input 
               type="text" 
-              name="" 
-              id=""
               className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
               placeholder="Tu nombre"
               value={nombre}
@@ -40,8 +54,6 @@ const Registrar = () => {
             >Email: </label>
             <input 
               type="email" 
-              name="" 
-              id=""
               className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
               placeholder="Tu email"
               value={email}
@@ -55,8 +67,6 @@ const Registrar = () => {
             >Password: </label>
             <input 
               type="password" 
-              name="" 
-              id=""
               className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
               placeholder="Tu password"
               value={password}
@@ -70,8 +80,6 @@ const Registrar = () => {
             >Repetir Password: </label>
             <input 
               type="password" 
-              name="" 
-              id=""
               className="border w-full p-3 mt-3 bg-gray-50 rounded-xl"
               placeholder="Repite tu password"
               value={repetirPassword}
