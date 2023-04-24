@@ -6,6 +6,7 @@ import OlvidePassword from './paginas/OlvidePassword'
 import ConfirmarCuenta from './paginas/ConfirmarCuenta'
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -13,7 +14,7 @@ function App() {
           <Route index element={<Login />} />
           <Route path="registrar" element={<Registrar />} />
           <Route path="olvide-password" element={<OlvidePassword />} />
-          <Route path="confimar/:id" element={<ConfirmarCuenta />} />
+          <Route path="confirmar/:id" element={<ConfirmarCuenta />} />
         </Route>
 
       </Routes>
