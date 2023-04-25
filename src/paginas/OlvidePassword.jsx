@@ -2,10 +2,10 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import Alerta from "../components/Alerta"
 import clienteAxios from "../config/axios"
+import useAuth from "../hooks/useAuth"
 
 const OlvidePassword = () => {
   const [email, setEmail] = useState('')
-
   const [ alerta, setAlerta] = useState('')
 
   const handleSubmit = async (e) => {
