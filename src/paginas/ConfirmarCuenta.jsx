@@ -20,7 +20,6 @@ const ConfirmarCuenta = () => {
         setAlerta({
           msg: data.msg,
         })
-        console.log('Holi')
       } catch (error) {
         setAlerta({
           msg: error.response.data.msg,

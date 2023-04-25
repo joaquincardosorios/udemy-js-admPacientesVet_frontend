@@ -34,7 +34,6 @@ const NuevoPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('holi')
         if(password!==repetirPassword){
             setAlerta({msg: 'Los pass no son iguales', error: true})
             return
