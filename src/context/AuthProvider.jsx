@@ -25,7 +25,7 @@ const AuthProvider = ({children}) => {
             
             try {
                 const { data } = await clienteAxios('/veterinarios/perfil', config)
-                setAuth(data)
+                setAuth(data.perfil)
             } catch (error) {
                 console.log(error.response.data.msg)
                 setAuth({})
@@ -40,8 +40,61 @@ const AuthProvider = ({children}) => {
         setAuth({})
     }
 
-    const actualizarPerfil = datos => {
-        console.log(datos)
+    const actualizarPerfil = async datos => {
+        const token = localStorage.getItem('token')
+
+            if(!token) {
+                setCargando(false)
+                return
+            }
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        }
+        try {
+            const url = `/veterinarios/perfil/${datos._id}`
+            // eslint-disable-next-line no-unused-vars
+            const { data } =await clienteAxios.put(url, datos, config)
+            return {
+                msg: "Almacenado correctamente"
+            }
+        } catch (error) {
+            return {
+                msg: error.response.data.msg,
+                error: true
+            }
+        }
+    }
+
+    const guardarPassword = async (datos) => {
+        const token = localStorage.getItem('token')
+
+            if(!token) {
+                setCargando(false)
+                return
+            }
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        }
+
+        try {
+            const url = '/veterinarios/actualizar-password'
+
+            const { data } = await clienteAxios.put(url, datos, config)
+            return{
+                msg: data.msg
+            }
+        } catch (error) {
+            return {
+                msg: error.response.data.msg,
+                error: true
+            }    
+        }   
     }
 
     return(
@@ -51,7 +104,8 @@ const AuthProvider = ({children}) => {
                 setAuth,
                 cargando,
                 cerrarSesion,
-                actualizarPerfil
+                actualizarPerfil,
+                guardarPassword
             }}>
             {children}
         </AuthContext.Provider>

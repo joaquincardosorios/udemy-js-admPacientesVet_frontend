@@ -11,10 +11,10 @@ const EditarPerfil = () => {
   const [alerta, setAlerta] = useState({})
 
   useEffect( () => {
-    setPerfil(auth.perfil)
+    setPerfil(auth)
   },[auth])
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
 
     const {nombre, email} = perfil
@@ -26,7 +26,8 @@ const EditarPerfil = () => {
       return
     }
 
-    actualizarPerfil(perfil)
+    const resultado = await actualizarPerfil(perfil)
+    setAlerta(resultado)
   }
 
   const { msg } = alerta
