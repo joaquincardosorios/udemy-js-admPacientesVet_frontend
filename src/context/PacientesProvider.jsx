@@ -80,10 +80,12 @@ const PacientesProvider = ({children}) => {
                     }
                 }
                 try {
+                    // eslint-disable-next-line no-unused-vars
                     const {data} = await clienteAxios.delete(`/pacientes/${id}`,config)
 
                     const pacientesActualizado = pacientes.filter(pacientesState => pacientesState._id !== id)
                     setPacientes(pacientesActualizado)
+
                 } catch (error) {
                     console.log(error.response.data.msg)
                 }
